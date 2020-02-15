@@ -1,0 +1,61 @@
+%from https://tex.stackexchange.com/questions/482330/how-can-one-draw-a-segment-of-a-sphere-with-tikz
+
+\documentclass[tikz,dvipsnames]{standalone}
+\usepackage{tikz-3dplot} 
+\usetikzlibrary{3d} 
+\usepackage[]{kpfonts}
+\usetikzlibrary{arrows.meta}
+
+\newcommand{\I}{\mathrm{\mathbf{I}}}
+\newcommand{\SO}{\mathrm{\mathbf{SO}}}
+\newcommand{\so}{\mathfrak{so}}
+
+\makeatletter
+\tikzoption{canvas is plane}[]{\@setOxy#1}
+\def\@setOxy O(#1,#2,#3)x(#4,#5,#6)y(#7,#8,#9)%
+  {\def\tikz@plane@origin{\pgfpointxyz{#1}{#2}{#3}}%
+   \def\tikz@plane@x{\pgfpointxyz{#4}{#5}{#6}}%
+   \def\tikz@plane@y{\pgfpointxyz{#7}{#8}{#9}}%
+   \tikz@canvas@is@plane
+  }
+\makeatother  
+
+\begin{document} 
+\tdplotsetmaincoords{70}{30} 
+\begin{tikzpicture}[tdplot_main_coords,bullet/.style={fill,circle,inner
+sep=1pt},sphere segment/.style args={%
+phi from #1 to #2 and theta from #3 to #4 and radius #5}{insert path={%
+ plot[variable=\x,smooth,domain=#2:#1] 
+ (xyz spherical cs:radius=#5,longitude=\x,latitude=#3)
+ -- plot[variable=\x,smooth,domain=#3:#4] 
+ (xyz spherical cs:radius=#5,longitude=#1,latitude=\x)
+ --plot[variable=\x,smooth,domain=#1:#2] 
+ (xyz spherical cs:radius=#5,longitude=\x,latitude=#4)
+ -- plot[variable=\x,smooth,domain=#4:#3] 
+ (xyz spherical cs:radius=#5,longitude=#2,latitude=\x)}},
+  every node/.style={scale=.2}] 
+    
+ \shade[draw,line width=.1pt,
+ top color=black!50, bottom color=white,
+ sphere segment={phi from 65 to 120 and theta from -12 to 23 and radius 1}] ; 
+ 
+  \begin{scope}[canvas is plane={O(0,0,0)x(1,0,0)y(0,-.7,.7)}]
+    \draw[line width=.1pt] (20:1) arc(20:-13:1);
+    \draw[line width=.1pt, -{Stealth[width=1pt, length=1pt]}] 
+    (20:1) node[scale=.7, yshift=.6em] {$\gamma(t)$} arc(20:15:1);
+ \end{scope}
+ 
+ \begin{scope}[canvas is yz plane at x=1]
+    \shade[draw, line width=.1pt, top color=MidnightBlue, bottom color=white, fill opacity=.8] 
+    (-.2,-.2) rectangle (.2,.2);
+ \end{scope}
+
+\fill[black] (1,0,0) circle(.2pt) node[xshift=.3em, yshift=.5em]{$\I$};
+% \draw[line width=.1pt, -{Stealth[width=.7pt, length=.7pt]}] (1,0,0) -- (1.1,0,0);
+\draw[line width=.1pt, -{Stealth[width=1pt, length=1pt]}]
+(1.2,0,.4) node[xshift=1.5em] {$\SO(3)$} to[bend left=15] (1,0,.4);
+\draw[line width=.1pt, -{Stealth[width=1pt, length=1pt]}]
+(1.2,0,.1) node[xshift=1.3em] {$\so(3)$} to[bend left=15] (1.05,0,.1);
+\end{tikzpicture}
+\end{document}
+

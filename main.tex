@@ -1,0 +1,51 @@
+\documentclass[12pt,landscape,a4paper]{article}
+
+\include{template}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\I}{\mathrm{\mathbf{I}}}
+\newcommand{\SO}{\mathrm{\mathbf{SO}}}
+\newcommand{\SE}{\mathrm{\mathbf{SE}}}
+\newcommand{\so}{\mathfrak{so}}
+\newcommand{\se}{\mathfrak{se}}
+\newcommand{\GL}{\mathrm{\mathbf{GL}}}
+\newcommand{\vzero}{\mathbf{0}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\T}{\mathbf{T}}
+
+\begin{document}
+\header
+\begin{multicols*}{3}
+\section{Lie Groups}
+	A Lie Group is a group whose elements are organized continuously and smoothly, making it a smooth manifold.
+	\subsection*{Special Orthogonal group $\SO(3)$}
+	B
+		Group of 3D rotation matrix:
+		$$\SO(3) = \left\{ \C \in \GL(3,\R) \,|\, \det(\C)=1, \C^T\C=\I\right\}$$%
+	\subsection*{Special Euclidian group $\SE(3)$}
+		Group of 3D transformation matrix:
+		$$\SE(3) = \left\{ \T =%
+			\begin{bmatrix}
+				\C & \mathbf{r} \\
+				\vzero^T & 0
+			\end{bmatrix} \in \GL(4,\R)
+		\,|\, \C\in\SO(3), \mathbf{r}\in\mathbb{R}^3 \right\}$$
+
+\section{Lie algebra}
+	A Lie algebra associated to a Lie Group is the tangent space of the group at the identity element.
+	\subsection*{Special Orthogonal Group $\so(3)$}
+	\subsection*{Special Euclidian Group $\se(3)$}
+
+	\begin{Figure}
+		\centering
+		\includegraphics[width=.7\linewidth]{media/SO3.pdf}
+	\end{Figure}
+
+\section{Adjoint of $\SE(3)$}
+\section{Interpolation}
+	\subsection{In $\SO(3)$}
+	$$\C = (\C_2\C_1^T)^\alpha\,\C_1 \quad\text{with } \alpha\in[0,1]$$
+	\subsection{In $\SE(3)$}
+	$$\T = (\T_2\T_1^{-1})^\alpha\,\T_1 \quad\text{with } \alpha\in[0,1]$$
+\end{multicols*}
+\end{document}
