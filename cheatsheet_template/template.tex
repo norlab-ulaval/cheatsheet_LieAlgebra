@@ -1,0 +1,93 @@
+%%%%%% Cheatsheet Template %%%%%%%%%%%%%%
+%Authors: Simon Vilmin, Johann Laconte
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{multicol}
+\usepackage[top=5mm,bottom=8mm,left=8mm,right=5mm]{geometry}
+\usepackage{pdfpages}
+\usepackage{amsmath}
+%\usepackage{amsthm}
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage[compact]{titlesec}  % compact : no space around titles
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+%Load colors
+\input{cheatsheet_template/flat_colors}
+
+%%%%%%%%%%%%%%%%%%%FONTS%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %change font here if needed
+    \usepackage[nosf]{kpfonts}
+	\usepackage[t1]{sourcesanspro}
+
+    \DeclareMathSizes{11}{12}{9}{9}
+    
+%%%%%%%%%%%%%%%%%%%COLORS%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %set colors for math environments
+    \everymath\expandafter{\the\everymath \color{blueMath}}
+    \everydisplay\expandafter{\the\everydisplay \color{blueMath}}
+    
+    %set colors for titles
+    \newcommand{\sectionColor}{pumpkin}
+    \newcommand{\subsectionColor}{americanRiver}
+    \newcommand{\numberingColor}{asbestos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%compress text
+\renewcommand{\baselinestretch}{.9}
+
+%define header
+\newcommand{\header}{
+    \begin{tabular}{L{.2\linewidth} C{.5\linewidth} R{.25\linewidth}}
+    J. Laconte &% author
+    {\huge Lie Algebra for Robotics } &% Title
+    \includegraphics[height=2.5em]{cheatsheet_template/norlab_logo_acronym_dark.pdf} %logo
+    \end{tabular}
+    
+    \noindent\textcolor{americanRiver}{\rule{\textwidth}{2pt}}
+}
+
+\pagestyle{empty}
+ 
+%Define title styles (package titlesec) 
+\titleformat{\section}[hang]
+    {\bfseries}
+    {\hspace{-1em} \textcolor{\numberingColor}{\thesection}\hspace{0.1em}\textcolor{asbestos}{\textbar}} % before title
+    {0.2em}  % hspace
+    {\bfseries\sffamily\color{pumpkin}} % title
+    
+\titleformat{\subsection}[hang] %subsection
+    {\small\bfseries}
+    {\hspace{-.6em} \textcolor{\numberingColor}{\thesubsection}\hspace{0.1em}}
+    {0.2em}
+    {\small\bfseries\sffamily\color{\subsectionColor}}
+    
+\titleformat{name=\subsection, numberless}[hang] %subsection*
+    {\small\bfseries}
+    {\textcolor{\numberingColor}{\textbar}}
+    {0.2em}
+    {\small\bfseries\sffamily\color{\subsectionColor}}
+
+%remove some vertical space around equations and (sub)sections titles 
+\AtBeginDocument{%
+	\setlength\abovedisplayskip{.5em}
+	\setlength\belowdisplayskip{.2em}
+	\setlength\abovedisplayshortskip{-.5em}
+	\setlength\belowdisplayshortskip{0em}}
+
+%remove indent 
+\setlength{\parindent}{0pt}
+
+% %new environment for figures in multicol
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+%add some spacing beween the columns
+\setlength\columnsep{1.5em}
