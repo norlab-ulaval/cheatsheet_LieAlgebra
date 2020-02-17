@@ -3,19 +3,28 @@
 \include{cheatsheet_template/template}
 \usepackage{mathtools}
 \usepackage[all]{xy}
+\usepackage{bm}
 
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\I}{\mathrm{\mathbf{I}}}
+\newcommand{\GL}{\mathrm{GL}}
 \newcommand{\SO}{\mathrm{\mathbf{SO}}}
 \newcommand{\SE}{\mathrm{\mathbf{SE}}}
 \newcommand{\so}{\mathfrak{so}}
 \newcommand{\se}{\mathfrak{se}}
-\newcommand{\GL}{\mathrm{\mathbf{GL}}}
-\newcommand{\vzero}{\mathbf{0}}
-\newcommand{\C}{\mathbf{C}}
-\newcommand{\T}{\mathbf{T}}
-\newcommand{\J}{\mathbf{J}}
-\newcommand{\Jc}{\mathcal{J}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\I}{\bm{\mathrm{I}}}
+\newcommand{\vzero}{\bm{0}}
+\newcommand{\C}{\bm{C}}
+\newcommand{\T}{\bm{T}}
+\newcommand{\aT}{\bm{\mathcal{T}}}
+\newcommand{\J}{\bm{J}}
+\newcommand{\Jc}{\bm{\mathcal{J}}}
+\newcommand{\bepsilon}{\bm{\epsilon}}
+\newcommand{\bvarepsilon}{\bm{\varepsilon}}
+\newcommand{\bphi}{\bm{\phi}}
+\newcommand{\bPhi}{\bm{\Phi}}
+\newcommand{\bxi}{\bm{\xi}}
+\newcommand{\bXi}{\bm{\Xi}}
 
 \DeclareMathOperator{\Ad}{Ad}
 \DeclareMathOperator{\ad}{ad}
@@ -47,32 +56,32 @@
 	The tangent space is defined as $ \{ \gamma'(1) \}$ where $\gamma(t)$ such that $\gamma(1) = \I$
 
 	\subsection*{Special Orthogonal Group $\so(3)$}
-		$$\so(3) = \left\{ \Phi = \phi^\wedge =%
+		$$\so(3) = \left\{ \bPhi = \bphi^\wedge =%
 			\begin{bmatrix}
 				0 & -\phi_3 & \phi_2 \\
 				\phi_3 & 0 & -\phi_1 \\
 				-\phi_2 & \phi_1 & 0\\
 			\end{bmatrix}
-		\,|\, \phi \in \R^3 \right\}$$
+		\,|\, \bphi \in \R^3 \right\}$$
 
-		Taking the exponential of an element in $\so(3)$ leads to an element in $\SO(3)$: $\exp(\Phi) \in \SO(3)$.
-		$$\Phi = \phi^\wedge \Rightarrow \phi = \Phi^\vee$$
+		Taking the exponential of an element in $\so(3)$ leads to an element in $\SO(3)$: $\exp(\bPhi) \in \SO(3)$.
+		$$\bPhi = \bphi^\wedge \Rightarrow \bphi = \bPhi^\vee$$
 
 	\subsection*{Special Euclidian Group $\se(3)$}
-	$$ \se(3) = \left\{ \Xi = \xi^\wedge =
+	$$ \se(3) = \left\{ \bXi = \bxi^\wedge =
 		\begin{bmatrix}
-			\rho \\ \phi
+			\bm{\rho} \\ \bphi
 		\end{bmatrix}^\wedge
 		=
 		\begin{bmatrix}
-			\phi^\wedge & \rho \\
+			\bphi^\wedge & \bm{\rho} \\
 			\vzero^T & 0
 		\end{bmatrix}
-		\,|\, \rho,\phi \in \R^3
+		\,|\, \bm{\rho},\bphi \in \R^3
 	\right\}$$
 
-		Taking the exponential of an element in $\se(3)$ leads to an element in $\SE(3)$: $\exp(\Xi) \in \SE(3)$.
-		$$\Xi = \xi^\wedge \Rightarrow \xi = \Xi^\vee$$
+		Taking the exponential of an element in $\se(3)$ leads to an element in $\SE(3)$: $\exp(\bXi) \in \SE(3)$.
+		$$\bXi = \bxi^\wedge \Rightarrow \bxi = \bXi^\vee$$
 
 \section{Exponential Map}
 For every square matrix $\mathbf{A}$, we have
@@ -84,34 +93,34 @@ $$\begin{aligned}
 Most of the time, $\exp(\mathbf{A}+\mathbf{B}) \not= \exp(\mathbf{A})\exp(\mathbf{B})$
 
 	$$\begin{aligned} \ln(\C_1\C_2)^\vee%
-	&= \phi_1 + \phi_2 + \frac12 \phi_1^\wedge\phi_2 + \cdots \\%\frac{1}{12}\phi_1^\wedge\phi_1^\wedge\phi_2 \\&+ \frac{1}{12}\phi_2^\wedge\phi_2^\wedge\phi_1 + \cdots \\
+	&= \bphi_1 + \bphi_2 + \frac12 \bphi_1^\wedge\bphi_2 + \cdots \\%\frac{1}{12}\phi_1^\wedge\phi_1^\wedge\phi_2 \\&+ \frac{1}{12}\phi_2^\wedge\phi_2^\wedge\phi_1 + \cdots \\
 	&\approx
 	\begin{cases}
-		\J(\phi_2)^{-1}\phi_1 + \phi_2 \quad\text{if $\phi_1$ small} \\
-		\phi_1 \J(-\phi_1)^{-1}\phi_2  \quad\text{if $\phi_2$ small}
+		\J(\bphi_2)^{-1}\bphi_1 + \bphi_2 \quad\text{if $\bphi_1$ small} \\
+		\bphi_1 \J(-\bphi_1)^{-1}\bphi_2  \quad\text{if $\bphi_2$ small}
 	\end{cases}
 	\end{aligned}$$
 
 	$$\begin{aligned} \ln(\T_1\T_2)^\curlyvee%
-	&= \xi_1 + \xi_2 + \frac12 \xi_1^\curlywedge\xi_2 + \cdots \\%\frac{1}{12}\xi_1^\curlywedge\xi_1^\curlywedge\xi_2 \\&+ \frac{1}{12}\xi_2^\curlywedge\xi_2^\curlywedge\xi_1 + \cdots \\
+	&= \bxi_1 + \bxi_2 + \frac12 \bxi_1^\curlywedge\bxi_2 + \cdots \\%\frac{1}{12}\xi_1^\curlywedge\xi_1^\curlywedge\xi_2 \\&+ \frac{1}{12}\xi_2^\curlywedge\xi_2^\curlywedge\xi_1 + \cdots \\
 	&\approx
 	\begin{cases}
-		\Jc(\xi_2)^{-1}\xi_1 + \xi_2 \quad\text{if $\xi_1$ small} \\
-		\xi_1 \Jc(-\xi_1)^{-1}\xi_2  \quad\text{if $\xi_2$ small}
+		\Jc(\bxi_2)^{-1}\bxi_1 + \bxi_2 \quad\text{if $\bxi_1$ small} \\
+		\bxi_1 \Jc(-\bxi_1)^{-1}\bxi_2  \quad\text{if $\bxi_2$ small}
 	\end{cases}
 	\end{aligned}$$
 
 \section{Adjoints}
 	The adjoint of an element of $\se(3)$ is
-	$$ \ad(\Xi) = \ad(\xi^\wedge) = %
+	$$ \ad(\bXi) = \ad(\bxi^\wedge) = %
 	\begin{bmatrix}
-		\phi^\wedge & \rho^\wedge \\
-		\vzero & \phi^\wedge
+		\bphi^\wedge & \rho^\wedge \\
+		\vzero & \bphi^\wedge
 	\end{bmatrix} = 
-	\xi^\curlywedge$$
+	\bxi^\curlywedge$$
 
 	The adjoint of an element of $\SE(3)$ is
-	$$ \mathcal{T} = \Ad(T) =%
+	$$ \aT = \Ad(\T) =%
 	\begin{bmatrix}
 		\C & \mathbf{r} \\
 		\vzero & \C
@@ -119,15 +128,15 @@ Most of the time, $\exp(\mathbf{A}+\mathbf{B}) \not= \exp(\mathbf{A})\exp(\mathb
 	\vspace{-1.5em}
 \section{Relation between spaces}
 	$$\xymatrix{ 
-		\phi\in\so(3) \ar[r]^\exp & \C\in\SO(3) \\
-		\xi^\wedge\in\se(3) \ar[r]^\exp \ar[d]^\ad & \T\in\SE(3) \ar[d]^\Ad\\
-	\xi^\curlywedge\ad(\se(3)) \ar[r]^\exp& \mathcal{T}\in\Ad(\SE(3))  }$$
+		\bphi\in\so(3) \ar[r]^\exp & \C\in\SO(3) \\
+		\bxi^\wedge\in\se(3) \ar[r]^\exp \ar[d]^\ad & \T\in\SE(3) \ar[d]^\Ad\\
+	\bxi^\curlywedge\in\ad(\se(3)) \ar[r]^\exp& \aT\in\Ad(\SE(3))  }$$
 	\section{(left) Jacobians}
 $$\begin{aligned}
-	\J(\phi) = \sum_{n=0}^\infty \frac{1}{(n+1)!} \left(\phi^\wedge\right)^n \hskip.6em 
-	\Jc(\xi)= \sum_{n=0}^\infty \frac{1}{(n+1)!} \left(\xi^\wedge\right)^n 
+	\J(\bphi) = \sum_{n=0}^\infty \frac{1}{(n+1)!} \left(\bphi^\wedge\right)^n \hskip.6em 
+	\Jc(\bxi)= \sum_{n=0}^\infty \frac{1}{(n+1)!} \left(\bxi^\wedge\right)^n 
 \end{aligned}$$
-	The Jacobians have singularities (i.e., the inverse does not exist) at $\phi=2\pi m$ with $m$ a nonzero integer.
+	The Jacobians have singularities (i.e., the inverse does not exist) at $|\bphi|=2\pi m$ with $m$ a nonzero integer.
 
 \section{Interpolation}
 	$$\C = (\C_2\C_1^T)^\alpha\,\C_1 \qquad \T = (\T_2\T_1^{-1})^\alpha\,\T_1$$
@@ -135,16 +144,16 @@ $$\begin{aligned}
 
 \section{Perturb Rotations and Poses}
 	The left perturbation avoids the singularities as we stay near the identity:
-	$$\C = \exp(\epsilon^\wedge)\bar{\C} \qquad \T = \exp(\varepsilon^\wedge)\bar{\T}$$
-	with $\epsilon\in\R^3\sim \mathcal{N}(\vzero,\Sigma_\epsilon)$, $\varepsilon\in\R^6\sim \mathcal{N}(\vzero,\Sigma_\varepsilon)$
+	$$\C = \exp(\bepsilon^\wedge)\bar{\C} \qquad \T = \exp(\bvarepsilon^\wedge)\bar{\T}$$
+	with $\bepsilon\in\R^3\sim \mathcal{N}(\vzero,\Sigma_{\bepsilon})$, $\bvarepsilon\in\R^6\sim \mathcal{N}(\vzero,\Sigma_{\bvarepsilon})$
 	\subsection{Example: Compounding poses}
-	We want to find the mean and covariance of $\T=\T_1\T_2$ where $T_1=\exp(\varepsilon_1)\bar{\T}_1, T_2=\exp(\varepsilon_2)\bar{\T}_2$ and the errors $\varepsilon_1, \varepsilon_2$ have zero mean and covariances $\Sigma_1,\Sigma_2$.
+	We want to find the mean and covariance of $\T=\T_1\T_2$ where $T_1=\exp(\bvarepsilon_1)\bar{\T}_1, T_2=\exp(\bvarepsilon_2)\bar{\T}_2$ and the errors $\bvarepsilon_1, \bvarepsilon_2$ have zero mean and covariances $\Sigma_1,\Sigma_2$.
 	$$\begin{aligned}
-		&\exp(\varepsilon^\wedge)\bar{\T} =  \exp(\varepsilon_1)\bar{\T}_1\exp(\varepsilon_2)\bar{\T}_2 \\
-		\Leftrightarrow& \exp(\varepsilon^\wedge) = \exp(\varepsilon_1)\exp(\bar{\mathcal{T}}_1\varepsilon_2^\wedge) &\bar{\mathcal{T}}_1=\Ad(\bar{T}_1) \\
-		\Leftrightarrow& \varepsilon = \varepsilon_1+\varepsilon_2'+\frac12\varepsilon_1^\curlywedge\varepsilon_2'+\frac{1}{12}\varepsilon_1^\curlywedge\varepsilon_1^\curlywedge\varepsilon_2' + \cdots &\varepsilon_2'=\bar{\mathcal{T}}_1\varepsilon_2
+		&\exp(\bvarepsilon^\wedge)\bar{\T} =  \exp(\bvarepsilon_1)\bar{\T}_1\exp(\bvarepsilon_2)\bar{\T}_2 \\
+		\Leftrightarrow& \exp(\bvarepsilon^\wedge) = \exp(\bvarepsilon_1)\exp(\bar{\mathcal{T}}_1\bvarepsilon_2^\wedge) &\bar{\aT}_1=\Ad(\bar{\T}_1) \\
+		\Leftrightarrow& \bvarepsilon = \bvarepsilon_1+\bvarepsilon_2'+\frac12\bvarepsilon_1^\curlywedge\bvarepsilon_2'+\frac{1}{12}\bvarepsilon_1^\curlywedge\bvarepsilon_1^\curlywedge\bvarepsilon_2' + \cdots &\bvarepsilon_2'=\bar{\aT}_1\bvarepsilon_2
 	\end{aligned}$$
-	It is then possible to find $\mathbb{E}[\varepsilon]$ and $\mathbb{E}[\varepsilon\varepsilon^T]$
+	It is then possible to find $\mathbb{E}[\bvarepsilon]$ and $\mathbb{E}[\bvarepsilon\bvarepsilon^T]$
 
 \end{multicols*}
 \end{document}
