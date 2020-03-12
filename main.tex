@@ -28,6 +28,7 @@
 
 \DeclareMathOperator{\Ad}{Ad}
 \DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\tr}{tr}
 
 \begin{document}
 \header
@@ -89,6 +90,17 @@ $$\begin{aligned}
 	\exp(\mathbf{A}) &= \sum_{n=0}^\infty \frac{1}{n!}\mathbf{A}^n \\
 	\ln(\mathbf{A}) &= \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n}(\mathbf{A}-\I)^n
 \end{aligned}$$
+
+\subsection*{In $\SO(3)$}
+$$\begin{aligned}
+	\exp(\bphi^\wedge) &= \cos(\phi)\I + (1-\cos(\phi))\bm{a}\bm{a}^T + \sin(\phi)\bm{a}^\wedge \\
+	\log(\C) &= \frac12 \frac{\theta(\C)}{\sin(\theta(\C))}(\C-\C^T)
+\end{aligned}$$ \vskip.2em
+$$\text{with}\quad\begin{cases}
+	\C &= \exp(\bphi^\wedge) =  \exp(\phi\bm{a}) \\ 
+	\theta(\C) &= \cos^{-1}\left(\frac12(\tr(\C)-1)\right).
+\end{cases}$$
+	
 \subsection*{Baker-Campbell-Hausdorff (BCH) formula}
 Most of the time, $\exp(\mathbf{A}+\mathbf{B}) \not= \exp(\mathbf{A})\exp(\mathbf{B})$
 
