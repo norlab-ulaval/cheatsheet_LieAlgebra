@@ -37,15 +37,15 @@
 	A Lie Group is a group whose elements are organized continuously and smoothly, making it a smooth manifold.
 	\subsection*{Special Orthogonal group $\SO(3)$}
 		Group of 3D rotation matrix:
-		$$\SO(3) = \left\{ \C \in \GL(3,\R) \,|\, \det(\C)=1, \C^T\C=\I\right\}$$%
+		$$\SO(3) = \left\{ \C \in \GL(3,\R) \,\middle|\, \det(\C)=1, \C^T\C=\I\right\}$$%
 	\subsection*{Special Euclidian group $\SE(3)$}
 		Group of 3D transformation matrix:
-		$$\SE(3) = \left\{ \T =%
+		$$\SE(3) = \left\{ %\T =%
 			\begin{bmatrix}
 				\C & \mathbf{r} \\
 				\vzero^T & 1
 			\end{bmatrix} \in \GL(4,\R)
-		\,|\, \C\in\SO(3), \mathbf{r}\in\mathbb{R}^3 \right\}$$
+		\,\middle|\, \C\in\SO(3), \mathbf{r}\in\mathbb{R}^3 \right\}$$
 
 \section{Lie algebra}
 	\begin{wrapfigure}[7]{r}{.5\linewidth}
@@ -53,8 +53,8 @@
 		\centering
 		\includegraphics[width=.9\linewidth]{media/SO3.pdf}
 	\end{wrapfigure}
-	A Lie algebra is the tangent space of the Lie group at the identity element.
-	The tangent space is defined as $ \{ \gamma'(1) \}$ where $\gamma(t)$ such that $\gamma(1) = \I$
+	A Lie algebra $\mathfrak{g}$ of a Lie group $G$ is the tangent space of $G$ at the identity element.
+	The tangent space is defined as the set $ \{ \gamma'(0) \}$ where $\gamma(t)\in G, \gamma(0) = \I$
 
 	\subsection*{Special Orthogonal Group $\so(3)$}
 		$$\so(3) = \left\{ \bPhi = \bphi^\wedge =%
@@ -140,7 +140,8 @@ Most of the time, $\exp(\mathbf{A}+\mathbf{B}) \not= \exp(\mathbf{A})\exp(\mathb
 	\vspace{-1.5em}
 \section{Relation between spaces}
 	$$\xymatrix{ 
-		\bphi\in\so(3) \ar[r]^\exp & \C\in\SO(3) \\
+	\bphi\in\so(3) \ar[r]^\exp & \C\in\SO(3)}$$
+	$$\xymatrix{%
 		\bxi^\wedge\in\se(3) \ar[r]^\exp \ar[d]^\ad & \T\in\SE(3) \ar[d]^\Ad\\
 	\bxi^\curlywedge\in\ad(\se(3)) \ar[r]^\exp& \aT\in\Ad(\SE(3))  }$$
 	\section{(left) Jacobians}
@@ -158,14 +159,14 @@ $$\begin{aligned}
 	The left perturbation avoids the singularities as we stay near the identity:
 	$$\C = \exp(\bepsilon^\wedge)\bar{\C} \qquad \T = \exp(\bvarepsilon^\wedge)\bar{\T}$$
 	with $\bepsilon\in\R^3\sim \mathcal{N}(\vzero,\Sigma_{\bepsilon})$, $\bvarepsilon\in\R^6\sim \mathcal{N}(\vzero,\Sigma_{\bvarepsilon})$
-	\subsection{Example: Compounding poses}
-	We want to find the mean and covariance of $\T=\T_1\T_2$ where $T_1=\exp(\bvarepsilon_1)\bar{\T}_1, T_2=\exp(\bvarepsilon_2)\bar{\T}_2$ and the errors $\bvarepsilon_1, \bvarepsilon_2$ have zero mean and covariances $\Sigma_1,\Sigma_2$.
-	$$\begin{aligned}
-		&\exp(\bvarepsilon^\wedge)\bar{\T} =  \exp(\bvarepsilon_1)\bar{\T}_1\exp(\bvarepsilon_2)\bar{\T}_2 \\
-		\Leftrightarrow& \exp(\bvarepsilon^\wedge) = \exp(\bvarepsilon_1)\exp(\bar{\mathcal{T}}_1\bvarepsilon_2^\wedge) &\bar{\aT}_1=\Ad(\bar{\T}_1) \\
-		\Leftrightarrow& \bvarepsilon = \bvarepsilon_1+\bvarepsilon_2'+\frac12\bvarepsilon_1^\curlywedge\bvarepsilon_2'+\frac{1}{12}\bvarepsilon_1^\curlywedge\bvarepsilon_1^\curlywedge\bvarepsilon_2' + \cdots &\bvarepsilon_2'=\bar{\aT}_1\bvarepsilon_2
-	\end{aligned}$$
-	It is then possible to find $\mathbb{E}[\bvarepsilon]$ and $\mathbb{E}[\bvarepsilon\bvarepsilon^T]$
+%	\subsection{Example: Compounding poses}
+%	We want to find the mean and covariance of $\T=\T_1\T_2$ where $T_1=\exp(\bvarepsilon_1)\bar{\T}_1, T_2=\exp(\bvarepsilon_2)\bar{\T}_2$ and the errors $\bvarepsilon_1, \bvarepsilon_2$ have zero mean and covariances $\Sigma_1,\Sigma_2$.
+%	$$\begin{aligned}
+%		&\exp(\bvarepsilon^\wedge)\bar{\T} =  \exp(\bvarepsilon_1)\bar{\T}_1\exp(\bvarepsilon_2)\bar{\T}_2 \\
+%		\Leftrightarrow& \exp(\bvarepsilon^\wedge) = \exp(\bvarepsilon_1)\exp(\bar{\mathcal{T}}_1\bvarepsilon_2^\wedge) &\bar{\aT}_1=\Ad(\bar{\T}_1) \\
+%		\Leftrightarrow& \bvarepsilon = \bvarepsilon_1+\bvarepsilon_2'+\frac12\bvarepsilon_1^\curlywedge\bvarepsilon_2'+\frac{1}{12}\bvarepsilon_1^\curlywedge\bvarepsilon_1^\curlywedge\bvarepsilon_2' + \cdots &\bvarepsilon_2'=\bar{\aT}_1\bvarepsilon_2
+%	\end{aligned}$$
+%	It is then possible to find $\mathbb{E}[\bvarepsilon]$ and $\mathbb{E}[\bvarepsilon\bvarepsilon^T]$
 
 \end{multicols*}
 \end{document}
