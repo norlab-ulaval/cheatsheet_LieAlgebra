@@ -37,19 +37,19 @@
 	A Lie Group is a group whose elements are organized continuously and smoothly, making it a smooth manifold.
 	\subsection*{Special Orthogonal group $\SO(3)$}
 		Group of 3D rotation matrix:
-		$$\SO(3) = \left\{ \C \in \GL(3,\R) \,\middle|\, \det(\C)=1, \C^T\C=\I\right\}$$%
+		$$\SO(3) = \left\{ \C \in \R^{3\times 3} \,\middle|\, \det(\C)=1, \C^T\C=\I\right\}$$%
 	\subsection*{Special Euclidian group $\SE(3)$}
 		Group of 3D transformation matrix:
 		$$\SE(3) = \left\{ %\T =%
 			\begin{bmatrix}
 				\C & \mathbf{r} \\
 				\vzero^T & 1
-			\end{bmatrix} \in \GL(4,\R)
+			\end{bmatrix} \in  \R^{4\times 4}%\GL(4,\R)
 		\,\middle|\, \C\in\SO(3), \mathbf{r}\in\mathbb{R}^3 \right\}$$
 
 \section{Lie algebra}
 	\begin{wrapfigure}[7]{r}{.5\linewidth}
-		\vskip-4em
+		\vskip-3em
 		\centering
 		\includegraphics[width=.9\linewidth]{media/SO3.pdf}
 	\end{wrapfigure}
@@ -109,7 +109,7 @@ Most of the time, $\exp(\mathbf{A}+\mathbf{B}) \not= \exp(\mathbf{A})\exp(\mathb
 	&\approx
 	\begin{cases}
 		\J(\bphi_2)^{-1}\bphi_1 + \bphi_2 \quad\text{if $\bphi_1$ small} \\
-		\bphi_1 \J(-\bphi_1)^{-1}\bphi_2  \quad\text{if $\bphi_2$ small}
+		\bphi_1 + \J(-\bphi_1)^{-1}\bphi_2  \quad\text{if $\bphi_2$ small}
 	\end{cases}
 	\end{aligned}$$
 
@@ -118,7 +118,7 @@ Most of the time, $\exp(\mathbf{A}+\mathbf{B}) \not= \exp(\mathbf{A})\exp(\mathb
 	&\approx
 	\begin{cases}
 		\Jc(\bxi_2)^{-1}\bxi_1 + \bxi_2 \quad\text{if $\bxi_1$ small} \\
-		\bxi_1 \Jc(-\bxi_1)^{-1}\bxi_2  \quad\text{if $\bxi_2$ small}
+		\bxi_1 + \Jc(-\bxi_1)^{-1}\bxi_2  \quad\text{if $\bxi_2$ small}
 	\end{cases}
 	\end{aligned}$$
 
@@ -137,7 +137,7 @@ Most of the time, $\exp(\mathbf{A}+\mathbf{B}) \not= \exp(\mathbf{A})\exp(\mathb
 		\C & \mathbf{r} \\
 		\vzero & \C
 	\end{bmatrix}$$
-	\vspace{-1.5em}
+
 \section{Relation between spaces}
 	$$\xymatrix{ 
 	\bphi\in\so(3) \ar[r]^\exp & \C\in\SO(3)}$$
