@@ -6,3 +6,5 @@ The aim is to regroup all the basic notions of Lie Algebra in one place, as ther
 Also, check [Tim Barfoot's website](http://asrl.utias.utoronto.ca/~tdb/) for
 * the pdf version of the book 
 * a cheatsheet of all useful identities of Lie groups, algebras and jacobians.
+
+Feel free to suggest and add other notions that you feels necessary for a basic understanding of the field!
