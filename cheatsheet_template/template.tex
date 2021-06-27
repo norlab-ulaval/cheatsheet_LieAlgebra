@@ -13,6 +13,7 @@
 %\usepackage{amsthm}
 \usepackage{array}
 \usepackage{wrapfig}
+\usepackage{hyperref}
 \usepackage[compact]{titlesec}  % compact : no space around titles
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -45,9 +46,9 @@
 %define header
 \newcommand{\header}{
     \begin{tabular}{L{.2\linewidth} C{.5\linewidth} R{.25\linewidth}}
-    J.Laconte, Authors' names &% author
+		\textcolor{gray}{J. Laconte} &% author
     {\huge Lie Algebra for Robotics } &% Title
-    \includegraphics[height=2.5em]{cheatsheet_template/norlab_logo_acronym_dark.pdf} %logo
+	\href{https://norlab.ulaval.ca/}{\includegraphics[height=2.5em]{cheatsheet_template/norlab_logo_acronym_dark.pdf}} %logo with url embedded
     \end{tabular}
     
     \noindent\textcolor{americanRiver}{\rule{\textwidth}{2pt}}
