@@ -25,6 +25,7 @@
 \newcommand{\bPhi}{\bm{\Phi}}
 \newcommand{\bxi}{\bm{\xi}}
 \newcommand{\bXi}{\bm{\Xi}}
+\newcommand{\bSigma}{\bm{\Sigma}}
 
 \DeclareMathOperator{\Ad}{Ad}
 \DeclareMathOperator{\ad}{ad}
@@ -64,7 +65,7 @@
 				\phi_3 & 0 & -\phi_1 \\
 				-\phi_2 & \phi_1 & 0\\
 			\end{bmatrix}
-		\,|\, \bphi \in \R^3 \right\}$$
+		\,\middle|\, \bphi \in \R^3 \right\}$$
 
 		Taking the exponential of an element in $\so(3)$ leads to an element in $\SO(3)$: $\exp(\bPhi) \in \SO(3)$.
 		$$\bPhi = \bphi^\wedge \Rightarrow \bphi = \bPhi^\vee$$
@@ -79,7 +80,7 @@
 			\bphi^\wedge & \bm{\rho} \\
 			\vzero^T & 0
 		\end{bmatrix}
-		\,|\, \bm{\rho},\bphi \in \R^3
+		\,\middle|\, \bm{\rho},\bphi \in \R^3
 	\right\}$$
 
 		Taking the exponential of an element in $\se(3)$ leads to an element in $\SE(3)$: $\exp(\bXi) \in \SE(3)$.
@@ -114,7 +115,7 @@ Most of the time, $\exp(\mathbf{A}+\mathbf{B}) \not= \exp(\mathbf{A})\exp(\mathb
 	\end{cases}
 	\end{aligned}$$
 
-	$$\begin{aligned} \ln(\T_1\T_2)^\curlyvee%
+	$$\begin{aligned} \ln(\T_1\T_2)^\vee%
 	&= \bxi_1 + \bxi_2 + \frac12 \bxi_1^\curlywedge\bxi_2 + \cdots \\%\frac{1}{12}\xi_1^\curlywedge\xi_1^\curlywedge\xi_2 \\&+ \frac{1}{12}\xi_2^\curlywedge\xi_2^\curlywedge\xi_1 + \cdots \\
 	&\approx
 	\begin{cases}
@@ -135,7 +136,7 @@ Most of the time, $\exp(\mathbf{A}+\mathbf{B}) \not= \exp(\mathbf{A})\exp(\mathb
 	The adjoint of an element of $\SE(3)$ is
 	$$ \aT = \Ad(\T) =%
 	\begin{bmatrix}
-		\C & \mathbf{r} \\
+		\C & \mathbf{r}^\wedge\C \\
 		\vzero & \C
 	\end{bmatrix}$$
 
@@ -145,12 +146,13 @@ Most of the time, $\exp(\mathbf{A}+\mathbf{B}) \not= \exp(\mathbf{A})\exp(\mathb
 	$$\xymatrix{%
 		\bxi^\wedge\in\se(3) \ar[r]^\exp \ar[d]^\ad & \T\in\SE(3) \ar[d]^\Ad\\
 	\bxi^\curlywedge\in\ad(\se(3)) \ar[r]^\exp& \aT\in\Ad(\SE(3))  }$$
-	\section{(left) Jacobians}
-$$\begin{aligned}
-	\J(\bphi) = \sum_{n=0}^\infty \frac{1}{(n+1)!} \left(\bphi^\wedge\right)^n \hskip.6em 
-	\Jc(\bxi)= \sum_{n=0}^\infty \frac{1}{(n+1)!} \left(\bxi^\wedge\right)^n 
-\end{aligned}$$
-	The Jacobians have singularities (i.e., the inverse does not exist) at $|\bphi|=2\pi m$ with $m$ a nonzero integer.
+
+\section{(left) Jacobians}
+        $$\begin{aligned}
+          \J(\bphi) = \sum_{n=0}^\infty \frac{1}{(n+1)!} \left(\bphi^\wedge\right)^n \hskip.6em 
+          \Jc(\bxi)= \sum_{n=0}^\infty \frac{1}{(n+1)!} \left(\bxi^\curlywedge\right)^n 
+        \end{aligned}$$
+        The Jacobians have singularities (i.e., the inverse does not exist) at $|\bphi|=2\pi m$ with $m$ a nonzero integer.
 
 \section{Interpolation}
 	$$\C = (\C_2\C_1^T)^\alpha\,\C_1 \qquad \T = (\T_2\T_1^{-1})^\alpha\,\T_1$$
@@ -159,7 +161,7 @@ $$\begin{aligned}
 \section{Perturb Rotations and Poses}
 	The left perturbation avoids the singularities as we stay near the identity:
 	$$\C = \exp(\bepsilon^\wedge)\bar{\C} \qquad \T = \exp(\bvarepsilon^\wedge)\bar{\T}$$
-	with $\bepsilon\in\R^3\sim \mathcal{N}(\vzero,\Sigma_{\bepsilon})$, $\bvarepsilon\in\R^6\sim \mathcal{N}(\vzero,\Sigma_{\bvarepsilon})$
+	with $\bepsilon\in\R^3\sim \mathcal{N}(\vzero,\bSigma_{\bepsilon})$, $\bvarepsilon\in\R^6\sim \mathcal{N}(\vzero,\bSigma_{\bvarepsilon})$
 %	\subsection{Example: Compounding poses}
 %	We want to find the mean and covariance of $\T=\T_1\T_2$ where $T_1=\exp(\bvarepsilon_1)\bar{\T}_1, T_2=\exp(\bvarepsilon_2)\bar{\T}_2$ and the errors $\bvarepsilon_1, \bvarepsilon_2$ have zero mean and covariances $\Sigma_1,\Sigma_2$.
 %	$$\begin{aligned}
